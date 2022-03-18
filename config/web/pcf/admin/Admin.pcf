@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <!-- LocationGroup for the "Admin" tab pages -->
+  <LocationGroup
+    canVisit="perm.System.admintabview"
+    id="Admin"
+    infoBar="CurrentDateInfoBar()"
+    menuActions="AdminMenuActions()"
+    title="DisplayKey.get(&quot;Web.Admin.Title&quot;)">
+    <LocationEntryPoint
+      signature="Admin()"/>
+    <LocationRef
+      location="UsersAndSecurity()"/>
+    <LocationRef
+      location="BusinessSettings()"/>
+    <LocationRef
+      location="Monitoring()"/>
+    <LocationRef
+      location="Utilities()"/>
+    <LocationRef
+      hideIfDisabled="true"
+      location="SupportQueries()"/>
+  </LocationGroup>
+</PCF>
