@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typecodemapping>
+  <namespacelist>
+    <namespace
+      name="pulse"/>
+  </namespacelist>
+  
+  <typelist
+    name="LineCategory">
+    <mapping
+      alias="Towing service"
+      namespace="pulse"
+      typecode="towing"/>
+  </typelist>
+</typecodemapping>

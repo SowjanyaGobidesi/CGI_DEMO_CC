@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
+  <Page
+    canEdit="false"
+    id="Cgi_UnattachedDocuments"
+    title="&quot;Unattached Documents&quot;">
+    <Variable
+      initialValue="new cgi.cc.unattacheddocuments.presentation.Cgi_UnattachedDocumentsUIHelper()"
+      name="pageHandler"
+      type="cgi.cc.unattacheddocuments.presentation.Cgi_UnattachedDocumentsUIHelper"/>
+    <Screen>
+      <Toolbar>
+        <ToolbarFilter
+          iterator="unattachedDocumentIterator"
+          label="&quot;Document Type&quot;"
+          name="documentTypeFilter">
+          <ToolbarFilterOptionGroup
+            filters="pageHandler.DocumentTypeFilter"/>
+        </ToolbarFilter>
+        <ToolbarDivider/>
+        <ToolbarButton
+          action="null"
+          id="refreshButton"
+          label="&quot;Refresh&quot;"/>
+      </Toolbar>
+      <ListViewPanel
+        id="unattachedDocumentLV">
+        <RowIterator
+          editable="false"
+          elementName="unattachedDocument"
+          id="unattachedDocumentIterator"
+          value="pageHandler.UnattachedDocumentList"
+          valueType="gw.api.database.IQueryBeanResult&lt;Cgi_UnattachedDocument&gt;">
+          <IteratorSort
+            sortBy="unattachedDocument.CreateTime"
+            sortDirection="descending"
+            sortOrder="1"/>
+          <Row>
+            <LinkCell>
+              <Link
+                action="pageHandler.attach(unattachedDocument)"
+                id="attachButton"
+                label="&quot;Attach&quot;"
+                styleClass="miniButton"/>
+            </LinkCell>
+            <LinkCell>
+              <Link
+                action="pageHandler.delete(unattachedDocument)"
+                confirmMessage="&quot;Are you sure you want to delete this item?&quot;"
+                id="deleteButton"
+                label="&quot;Delete&quot;"
+                styleClass="miniButton"/>
+            </LinkCell>
+            <LinkCell>
+              <Link
+                action="Cgi_UnattachedDocumentExtractPopup.push(unattachedDocument)"
+                id="viewDocumentExtractLink"
+                label="&quot;View Extract&quot;"
+                styleClass="none"/>
+            </LinkCell>
+            <DateCell
+              dateFormat="short"
+              id="createTime"
+              label="&quot;Create Time&quot;"
+              timeFormat="short"
+              value="unattachedDocument.CreateTime"/>
+            <TypeKeyCell
+              id="documentType"
+              label="&quot;Document Type&quot;"
+              value="unattachedDocument.DocumentType"
+              valueType="typekey.Cgi_UnattachedDocType"/>
+            <LinkCell
+              id="issue"
+              label="&quot;Issue&quot;"
+              stacked="true"
+              verticalAlign="middle">
+              <LinkIterator
+                elementName="issueElement"
+                id="issueElementIterator"
+                value="pageHandler.getIssueBreakup(unattachedDocument)"
+                valueType="java.lang.String[]">
+                <Link
+                  action="pageHandler.decideActionForLinksInIssue(issueElement)"
+                  available="pageHandler.isIssueLinkAvailable(issueElement)"
+                  id="issueElement"
+                  label="issueElement"/>
+              </LinkIterator>
+            </LinkCell>
+          </Row>
+        </RowIterator>
+      </ListViewPanel>
+    </Screen>
+  </Page>
+</PCF>

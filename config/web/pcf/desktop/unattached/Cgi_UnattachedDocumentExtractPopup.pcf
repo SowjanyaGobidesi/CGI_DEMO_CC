@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../pcf.xsd">
+  <Popup
+    beforeCommit="checkIfExtractChangedAndValidateSchema()"
+    canEdit="true"
+    id="Cgi_UnattachedDocumentExtractPopup"
+    title="&quot;Unattached Document Extract&quot;">
+    <LocationEntryPoint
+      signature="Cgi_UnattachedDocumentExtractPopup(unattachedDocument: Cgi_UnattachedDocument)"/>
+    <Variable
+      name="unattachedDocument"
+      type="Cgi_UnattachedDocument"/>
+    <Screen>
+      <Toolbar>
+        <EditButtons/>
+      </Toolbar>
+      <AlertBar
+        hideIfReadOnly="true"
+        id="alert"
+        label="&quot;If editing the extract, please edit only the values (part after ':') correspoding to the keys and not the keys themselves&quot;"/>
+      <DetailViewPanel>
+        <InputColumn>
+          <TextAreaInput
+            editable="true"
+            id="extract"
+            label="&quot;JSON Extract&quot;"
+            numRows="50"
+            value="unattachedDocument.DocumentExtractJSON"/>
+        </InputColumn>
+      </DetailViewPanel>
+    </Screen>
+    <Code><![CDATA[uses cgi.cc.unattacheddocuments.util.Cgi_UnattachedDocumentUtil
+
+function checkIfExtractChangedAndValidateSchema() {
+  if (unattachedDocument.isFieldChanged(Cgi_UnattachedDocument#DocumentExtractJSON)) {
+    Cgi_UnattachedDocumentUtil.validateExtractSchema(unattachedDocument)
+  }
+}]]></Code>
+  </Popup>
+</PCF>

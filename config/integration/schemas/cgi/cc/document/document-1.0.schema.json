@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "summary": "cgi.cc.document.documentsummary-1.0",
+    "content": "cgi.cc.document.documentcontent-1.0"
+  },
+  "definitions": {
+    "Document": {
+      "type": "object",
+      "properties": {
+        "DocumentSummary": {
+          "$ref": "summary#/definitions/DocumentSummary"
+        },
+        "DocumentContent": {
+          "$ref": "content#/definitions/DocumentContent"
+        }
+      }
+    }
+  }
+}

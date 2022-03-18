@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "content": {
+      "type": "object",
+      "properties": {
+        "encoding": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "encoded_text": {
+          "type": "string",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

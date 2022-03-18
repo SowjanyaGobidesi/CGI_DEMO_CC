@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "DocumentSummary": {
+      "type": "object",
+      "properties": {
+        "Author": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "DateModified": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "Description": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "HasContent": {
+          "type": "boolean"
+        },
+        "Language": {
+          "type": "string",
+          "x-gw-type": "typekey.LanguageType",
+          "x-gw-nullable": true
+        },
+        "Name": {
+          "type": "string"
+        },
+        "DocumentType": {
+          "type": "string",
+          "x-gw-type": "typekey.DocumentType"
+        }
+      }
+    }
+  }
+}

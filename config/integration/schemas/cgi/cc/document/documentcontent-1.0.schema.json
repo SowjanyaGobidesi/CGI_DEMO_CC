@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "DocumentContent": {
+      "type": "object",
+      "properties": {
+        "Content": {
+          "type": "string",
+          "format": "byte"
+        },
+        "MimeType": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

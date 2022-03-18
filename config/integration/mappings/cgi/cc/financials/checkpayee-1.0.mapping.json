@@ -1,0 +1,17 @@
+{
+  "schemaName": "cgi.cc.financials.checkpayee-1.0",
+  "mappers": {
+    "CheckPayee": {
+      "schemaDefinition": "CheckPayee",
+      "root": "entity.CheckPayee",
+      "properties": {
+        "Name": {
+          "path": "CheckPayee.Payee.Name"
+        },
+        "PayeeType": {
+          "path": "CheckPayee.PayeeType"
+        }
+      }
+    }
+  }
+}

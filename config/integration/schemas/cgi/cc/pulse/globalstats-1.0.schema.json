@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "global_stats": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "format": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "classified": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "classification": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "page_count": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "line_count": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "empty_line_count": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "word_count": {
+          "type": "string",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<entity
+  xmlns="http://guidewire.com/datamodel"
+  entity="Cgi_UnattachedDocument"
+  desc="Unattached Document"
+  table="cgi_unattacheddocument"
+  type="editable">
+  <column
+    desc="Document Extract in JSON formatted String"
+    name="DocumentExtractJSON"
+    nullok="false"
+    type="longtext"/>
+  <typekey
+    desc="Document Type"
+    name="DocumentType"
+    nullok="false"
+    typelist="Cgi_UnattachedDocType"/>
+  <column
+    desc="Issue due to which the document could not be attached"
+    name="Issue"
+    nullok="false"
+    type="shorttext"/>
+  <index
+    name="DocumentTypeIndex">
+    <indexcol
+      keyposition="1"
+      name="DocumentType"/>
+  </index>
+</entity>

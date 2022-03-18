@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<typelist xmlns="http://guidewire.com/typelists" name="Cgi_UnattachedDocType" desc="Unattached Document Type">
+  <typecode
+    code="invoice"
+    desc="Invoice"
+    name="Invoice"/>
+</typelist>

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "CheckPayee": {
+      "type": "object",
+      "properties": {
+        "ownerName": {
+          "type": "string"
+        },
+        "bbox_ownerName": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_ownerName": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "PayeeType": {
+          "type": "string",
+          "x-gw-type": "typekey.ContactRole"
+        }
+      }
+    }
+  }
+}
