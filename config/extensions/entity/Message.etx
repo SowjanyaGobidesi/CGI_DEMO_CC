@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<extension
+  xmlns="http://guidewire.com/datamodel"
+  entityName="Message">
+  <implementsInterface
+    iface="cgi.timeline.Cgi_MessagePublicMethods"
+    impl="cgi.timeline.Cgi_MessageImpl"/>
+</extension>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../../../../../../pcf.xsd">
+  <Popup
+    canEdit="false"
+    id="Cgi_MessagingTimelineViewPopup"
+    title="&quot;Message History&quot;">
+    <LocationEntryPoint
+      signature="Cgi_MessagingTimelineViewPopup(msgHistPublicId: String)"/>
+    <Variable
+      name="msgHistPublicId"
+      type="String"/>
+    <Variable
+      initialValue="gw.surepath.cc.configuration.timeline.creation.TimelineUtil.findByPublicId(MessageHistory, msgHistPublicId) as MessageHistory"
+      name="messageHistory"
+      type="MessageHistory"/>
+    <Screen>
+      <AlertBar
+        allowDismiss="false"
+        id="messageHistoryDoesNotExistAlert"
+        label="&quot;Message History has been purged! No details to show..&quot;"
+        visible="messageHistory == null"/>
+      <PanelSet
+        visible="messageHistory != null">
+        <ListViewPanel>
+          <Row
+            useTitleStyle="true">
+            <TextCell
+              id="SendTimeLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.SendTime&quot;)"/>
+            <TextCell
+              id="MessageNameLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.MessageName&quot;)"/>
+            <TextCell
+              id="DestinationNameLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.DestinationName&quot;)"/>
+            <TextCell
+              id="OrderLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.Order&quot;)"/>
+            <TextCell
+              id="SenderRefLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.SenderRef&quot;)"/>
+            <TextCell
+              id="StatusLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.Status&quot;)"/>
+            <TextCell
+              id="RetryCountLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.RetryCount&quot;)"/>
+            <TextCell
+              id="ResponseLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.Response&quot;)"/>
+            <TextCell
+              id="DescriptionLabel"
+              value="DisplayKey.get(&quot;Web.Admin.MessageControlForSOOListLV.Description&quot;)"/>
+          </Row>
+          <Row>
+            <DateCell
+              align="left"
+              dateFormat="short"
+              enableSort="false"
+              id="SendTime"
+              timeFormat="long"
+              value="messageHistory.SendTime"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="MessageName"
+              value="messageHistory.EventName"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="DestinationName"
+              value="lookup(messageHistory.DestinationID)"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="Order"
+              value="messageHistory.SendOrder"
+              valueType="java.lang.Integer"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="SenderRef"
+              value="messageHistory.SenderRefID"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="Status"
+              value="displayKey(messageHistory.Status)"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="RetryCount"
+              value="messageHistory.RetryCount"
+              valueType="java.lang.Integer"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="Response"
+              value="messageHistory.ErrorDescription"/>
+            <TextCell
+              align="left"
+              enableSort="false"
+              id="Description"
+              value="messageHistory.Description"/>
+          </Row>
+        </ListViewPanel>
+        <DetailViewPanel>
+          <InputColumn>
+            <TextAreaInput
+              align="center"
+              editable="true"
+              id="Payload"
+              label="DisplayKey.get(&quot;Web.Admin.MessagePayload&quot;)"
+              numRows="20"
+              value="messageHistory.Payload"/>
+          </InputColumn>
+        </DetailViewPanel>
+      </PanelSet>
+    </Screen>
+    <Code>function displayKey(statusInt : java.lang.Integer) : String {
+  //noinspection DisplayKeyNotLiteral
+  return gw.api.locale.DisplayKey.get("Java.Message.Status._" + (statusInt as String))
+}
+
+function lookup(destId : java.lang.Integer) : String {
+  return gw.api.admin.MessagingUtil.getEventMessageDestinationMap().get(destId)
+}</Code>
+  </Popup>
+</PCF>

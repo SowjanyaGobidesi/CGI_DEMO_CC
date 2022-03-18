@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<plugin
+  interface="IArchiveSource"
+  name="IArchiveSource">
+  <!-- TODO: Merge this implementation with the CBC S3-based implementation -->
+  <plugin-gosu
+    gosuclass="gw.surepath.cc.configuration.timeline.creation.ClaimWithTimelineInfoArchiveSource">
+    <param
+      name="documents.path"
+      value="files/documents"/>
+  </plugin-gosu>
+</plugin>
