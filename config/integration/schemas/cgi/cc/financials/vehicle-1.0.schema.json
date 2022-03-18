@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Vehicle": {
+      "type": "object",
+      "properties": {
+        "vehicleMake": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_vehicleMake": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_vehicleMake": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "vehicleModel": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_vehicleModel": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_vehicleModel": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "vin": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_vin": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_vin": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "year": {
+          "type": "integer",
+          "x-gw-nullable": true
+        },
+        "bbox_year": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_year": {
+          "type": "number",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

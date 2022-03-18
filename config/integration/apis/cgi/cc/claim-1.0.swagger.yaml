@@ -1,0 +1,35 @@
+swagger: '2.0'
+info:
+  description: "A simple Claim API"
+  version: '1.0'
+  title: "Claim API"
+basePath: /cgi/cc/claim/v1
+x-gw-schema-import:
+  document: cgi.cc.document.document-1.0
+x-gw-apihandlers: cgi.cc.claim.api.rest.Cgi_ClaimRestAPIHandler
+paths:
+  /{claimNumber}/document:
+    post:
+      summary: "Adds a document"
+      description: "Attaches a document to the claim"
+      operationId: addDocument
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-gw-authenticated: false
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "document#/definitions/Document"
+        - name: claimNumber
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: "Successful creation"
+          schema:
+            type: string

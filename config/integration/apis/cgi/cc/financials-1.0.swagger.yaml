@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  description: "A simple Financial API"
+  version: '1.0'
+  title: "Financials API"
+basePath: /cgi/cc/financials/v1
+x-gw-schema-import:
+  pulseoutput: cgi.cc.pulse.pulseoutput-1.0
+x-gw-apihandlers: cgi.cc.financials.api.rest.Cgi_ClaimFinancialsRestAPIHandler
+paths:
+  /financials/checkset:
+    post:
+      summary: "Create a checkset"
+      description: "Creates a new CheckSet entity"
+      operationId: createCheckSet
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-gw-authenticated: true
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "pulseoutput#/definitions/pulseoutput"
+      responses:
+        '200':
+          description: "Successful creation"
+          schema:
+            type: string

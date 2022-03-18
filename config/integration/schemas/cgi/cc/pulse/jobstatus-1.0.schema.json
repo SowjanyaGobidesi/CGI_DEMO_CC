@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "job_status": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "code": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "processing_time": {
+          "type": "string",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

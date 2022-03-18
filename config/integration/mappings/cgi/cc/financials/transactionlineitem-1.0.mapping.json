@@ -1,0 +1,20 @@
+{
+  "schemaName": "cgi.cc.financials.transactionlineitem-1.0",
+  "mappers": {
+    "TransactionLineItem": {
+      "schemaDefinition": "TransactionLineItem",
+      "root": "entity.TransactionLineItem",
+      "properties": {
+        "Comments": {
+          "path": "TransactionLineItem.Comments"
+        },
+        "LineCategory": {
+          "path": "TransactionLineItem.LineCategory"
+        },
+        "TransactionAmount": {
+          "path": "TransactionLineItem.Amount"
+        }
+      }
+    }
+  }
+}

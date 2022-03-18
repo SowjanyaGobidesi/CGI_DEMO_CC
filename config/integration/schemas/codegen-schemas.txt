@@ -1,0 +1,14 @@
+cgi.cc.financials.check-1.0
+cgi.cc.financials.transaction-1.0
+cgi.cc.financials.transactionlineitem-1.0
+cgi.cc.financials.checkpayee-1.0
+cgi.cc.financials.vehicle-1.0
+cgi.cc.document.document-1.0
+cgi.cc.document.documentsummary-1.0
+cgi.cc.document.documentcontent-1.0
+cgi.cc.pulse.pulseoutput-1.0
+cgi.cc.pulse.jobstatus-1.0
+cgi.cc.pulse.metadata-1.0
+cgi.cc.pulse.globalstats-1.0
+cgi.cc.pulse.data-1.0
+cgi.cc.pulse.content-1.0

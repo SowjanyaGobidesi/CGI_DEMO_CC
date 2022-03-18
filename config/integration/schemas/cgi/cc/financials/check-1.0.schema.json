@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "payment": "cgi.cc.financials.transaction-1.0",
+    "checkpayee": "cgi.cc.financials.checkpayee-1.0"
+  },
+  "definitions": {
+    "Check": {
+      "type": "object",
+      "properties": {
+        "AccountName": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "BankAccount": {
+          "type": "string",
+          "x-gw-type": "typekey.BankAccount",
+          "x-gw-nullable": true
+        },
+        "BankAccountNumber": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "BankAccountType": {
+          "type": "string",
+          "x-gw-type": "typekey.BankAccountType",
+          "x-gw-nullable": true
+        },
+        "BankName": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "BankRoutingNumber": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "CheckBatching": {
+          "type": "string",
+          "x-gw-type": "typekey.CheckBatching",
+          "x-gw-nullable": true
+        },
+        "CheckInstructions": {
+          "type": "string",
+          "x-gw-type": "typekey.CheckHandlingInstructions",
+          "x-gw-nullable": true
+        },
+        "CheckNumber": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "CheckType": {
+          "type": "string",
+          "x-gw-type": "typekey.CheckType",
+          "x-gw-nullable": true
+        },
+        "Comments": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "towedDate": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_towedDate": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_towedDate": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "DeductionType": {
+          "type": "string",
+          "x-gw-type": "typekey.DeductionType",
+          "x-gw-nullable": true
+        },
+        "DeliveryMethod": {
+          "type": "string",
+          "x-gw-type": "typekey.DeliveryMethod",
+          "x-gw-nullable": true
+        },
+        "EnteredTime": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "invoiceNumber": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_invoiceNumber": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_invoiceNumber": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "IsPrimary": {
+          "type": "boolean",
+          "x-gw-nullable": true
+        },
+        "IssueDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "toAddress": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_toAddress": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_toAddress": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "MailTo": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "Memo": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "PaymentMethod": {
+          "type": "string",
+          "x-gw-type": "typekey.PaymentMethod",
+          "x-gw-nullable": true
+        },
+        "PayTo": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "PendEscalationForBulk": {
+          "type": "boolean",
+          "x-gw-nullable": true
+        },
+        "primaryPayee": {
+          "$ref": "checkpayee#/definitions/CheckPayee"
+        },
+        "Reportability": {
+          "type": "string",
+          "x-gw-type": "typekey.ReportabilityType",
+          "x-gw-nullable": true
+        },
+        "ScheduledSendDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "ServicePdEnd": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "ServicePdStart": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "companyName": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_companyName": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_companyName": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "payments": {
+          "type": "array",
+          "items": {
+            "$ref": "payment#/definitions/Transaction"
+          }
+        }
+      }
+    }
+  }
+}

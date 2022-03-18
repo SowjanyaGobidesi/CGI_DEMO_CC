@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "TransactionLineItem": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "lineCategory": {
+          "type": "string"
+        },
+        "bbox_lineCategory": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_lineCategory": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "lineItemAmount": {
+          "type": "string"
+        },
+        "bbox_lineItemAmount": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_lineItemAmount": {
+          "type": "number",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

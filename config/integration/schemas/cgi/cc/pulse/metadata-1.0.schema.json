@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "jobStatus": "cgi.cc.pulse.jobstatus-1.0"
+  },
+  "definitions": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "job_status": {
+          "$ref": "jobStatus#/definitions/job_status"
+        },
+        "report_date_time": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "file_name": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "size": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "location": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "owner": {
+          "type": "string",
+          "x-gw-nullable": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schemaName": "cgi.cc.financials.check-1.0",
+  "import": {
+    "payment": "cgi.cc.financials.transaction-1.0",
+    "checkpayee": "cgi.cc.financials.checkpayee-1.0"
+  },
+  "mappers": {
+    "Check": {
+      "schemaDefinition": "Check",
+      "root": "entity.Check",
+      "properties": {
+        "AccountName": {
+          "path": "Check.AccountName"
+        },
+        "BankAccount": {
+          "path": "Check.BankAccount"
+        },
+        "BankAccountNumber": {
+          "path": "Check.BankAccountNumber"
+        },
+        "BankAccountType": {
+          "path": "Check.BankAccountType"
+        },
+        "BankName": {
+          "path": "Check.BankName"
+        },
+        "BankRoutingNumber": {
+          "path": "Check.BankAccountNumber"
+        },
+        "CheckBatching": {
+          "path": "Check.CheckBatching"
+        },
+        "CheckInstructions": {
+          "path": "Check.CheckInstructions"
+        },
+        "CheckNumber": {
+          "path": "Check.CheckNumber"
+        },
+        "CheckType": {
+          "path": "Check.CheckType"
+        },
+        "Comments": {
+          "path": "Check.Comments"
+        },
+        "DateOfService": {
+          "path": "Check.DateOfService"
+        },
+        "DeductionType": {
+          "path": "Check.DeductionType"
+        },
+        "DeliveryMethod": {
+          "path": "Check.DeliveryMethod"
+        },
+        "EnteredTime": {
+          "path": "Check.EnteredTime"
+        },
+        "InvoiceNumber": {
+          "path": "Check.InvoiceNumber"
+        },
+        "IsPrimary": {
+          "path": "Check.IsPrimary"
+        },
+        "IssueDate": {
+          "path": "Check.IssueDate"
+        },
+        "MailTo": {
+          "path": "Check.MailTo"
+        },
+        "Memo": {
+          "path": "Check.Memo"
+        },
+        "PaymentMethod": {
+          "path": "Check.PaymentMethod"
+        },
+        "PayTo": {
+          "path": "Check.PayTo"
+        },
+        "PendEscalationForBulk": {
+          "path": "Check.PendEscalationForBulk"
+        },
+        "PrimaryPayee": {
+          "path": "Check.FirstPayee",
+          "mapper": "checkpayee#/mappers/CheckPayee"
+        },
+        "Reportability": {
+          "path": "Check.Reportability"
+        },
+        "ScheduledSendDate": {
+          "path": "Check.ScheduledSendDate"
+        },
+        "ServicePdEnd": {
+          "path": "Check.ServicePdEnd"
+        },
+        "ServicePdStart": {
+          "path": "Check.ServicePdStart"
+        },
+        "Payments": {
+          "path": "Check.Payments",
+          "mapper": "payment#/mappers/Transaction"
+        }
+      }
+    }
+  }
+}

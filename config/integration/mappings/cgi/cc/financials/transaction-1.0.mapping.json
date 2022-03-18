@@ -1,0 +1,57 @@
+{
+  "schemaName": "cgi.cc.financials.transaction-1.0",
+  "import": {
+    "transactionLineItem": "cgi.cc.financials.transactionlineitem-1.0"
+  },
+  "mappers": {
+    "Transaction": {
+      "schemaDefinition": "Transaction",
+      "root": "entity.Transaction",
+      "properties": {
+        "Comments": {
+          "path": "Transaction.Comments"
+        },
+        "CostCategory": {
+          "path": "Transaction.CostCategory"
+        },
+        "CostType": {
+          "path": "Transaction.CostType"
+        },
+        "Currency": {
+          "path": "Transaction.Currency"
+        },
+        "Deletable": {
+          "path": "Transaction.Deletable"
+        },
+        "DoesNotErodeReserves": {
+          "path": "(Transaction as Payment).DoesNotErodeReserves",
+          "predicate": "Transaction typeis Payment"
+        },
+        "Editable": {
+          "path": "Transaction.Editable"
+        },
+        "PaymentType": {
+          "path": "(Transaction as Payment).PaymentType",
+          "predicate": "Transaction typeis Payment"
+        },
+        "RecoveryCategory": {
+          "path": "(Transaction as Recovery).RecoveryCategory",
+          "predicate": "Transaction typeis Recovery"
+        },
+        "ReservingCurrency": {
+          "path": "Transaction.ReservingCurrency"
+        },
+        "Subtype": {
+          "path": "Transaction.Subtype"
+        },
+        "TransactionDate": {
+          "path": "Transaction.TransactionDate"
+        },
+        "LineItems": {
+          "path": "Transaction.LineItems",
+          "mapper": "transactionLineItem#/mappers/TransactionLineItem"
+        }
+      }
+    }
+  }
+}

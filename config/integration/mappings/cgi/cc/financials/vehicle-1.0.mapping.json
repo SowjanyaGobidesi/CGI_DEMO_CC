@@ -1,0 +1,23 @@
+{
+  "schemaName": "cgi.cc.financials.vehicle-1.0",
+  "mappers": {
+    "Vehicle": {
+      "schemaDefinition": "Vehicle",
+      "root": "entity.Vehicle",
+      "properties": {
+        "Make": {
+          "path": "Vehicle.Make"
+        },
+        "Model": {
+          "path": "Vehicle.Model"
+        },
+        "VIN": {
+          "path": "Vehicle.Vin"
+        },
+        "Year": {
+          "path": "Vehicle.Year"
+        }
+      }
+    }
+  }
+}

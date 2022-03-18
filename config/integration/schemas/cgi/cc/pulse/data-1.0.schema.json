@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "check": "cgi.cc.financials.check-1.0"
+  },
+  "definitions": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "general": {
+          "$ref": "check#/definitions/Check"
+        }
+      }
+    }
+  }
+}

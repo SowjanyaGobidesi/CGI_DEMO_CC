@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "vehicle": "cgi.cc.financials.vehicle-1.0",
+    "transactionLineItem": "cgi.cc.financials.transactionlineitem-1.0"
+  },
+  "definitions": {
+    "Transaction": {
+      "type": "object",
+      "properties": {
+        "Comments": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "CostCategory": {
+          "type": "string",
+          "x-gw-type": "typekey.CostCategory"
+        },
+        "CostType": {
+          "type": "string",
+          "x-gw-type": "typekey.CostType"
+        },
+        "Currency": {
+          "type": "string",
+          "x-gw-type": "typekey.Currency",
+          "x-gw-nullable": true
+        },
+        "Deletable": {
+          "type": "boolean",
+          "x-gw-nullable": true
+        },
+        "DoesNotErodeReserves": {
+          "type": "boolean",
+          "x-gw-nullable": true
+        },
+        "Editable": {
+          "type": "boolean",
+          "x-gw-nullable": true
+        },
+        "PaymentType": {
+          "type": "string",
+          "x-gw-type": "typekey.PaymentType",
+          "x-gw-nullable": true
+        },
+        "RecoveryCategory": {
+          "type": "string",
+          "x-gw-type": "typekey.RecoveryCategory",
+          "x-gw-nullable": true
+        },
+        "ReservingCurrency": {
+          "type": "string",
+          "x-gw-type": "typekey.Currency",
+          "x-gw-nullable": true
+        },
+        "Subtype": {
+          "type": "string",
+          "x-gw-type": "typekey.Transaction"
+        },
+        "taxAmount": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_taxAmount": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_taxAmount": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "totalAmount": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "bbox_totalAmount": {
+          "type": "string",
+          "x-gw-nullable": true
+        },
+        "conf_totalAmount": {
+          "type": "number",
+          "x-gw-nullable": true
+        },
+        "TransactionDate": {
+          "type": "string",
+          "format": "date-time",
+          "x-gw-nullable": true
+        },
+        "vehicle": {
+          "$ref": "vehicle#/definitions/Vehicle"
+        },
+        "lineItems": {
+          "type": "array",
+          "items": {
+            "$ref": "transactionLineItem#/definitions/TransactionLineItem"
+          }
+        }
+      }
+    }
+  }
+}

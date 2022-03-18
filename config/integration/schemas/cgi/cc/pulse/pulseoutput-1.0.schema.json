@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "x-gw-import": {
+    "metadata": "cgi.cc.pulse.metadata-1.0",
+    "global_stats": "cgi.cc.pulse.globalstats-1.0",
+    "data": "cgi.cc.pulse.data-1.0",
+    "content": "cgi.cc.pulse.content-1.0"
+  },
+  "definitions": {
+    "pulseoutput": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "metadata#/definitions/metadata"
+        },
+        "global_stats": {
+          "$ref": "global_stats#/definitions/global_stats"
+        },
+        "data": {
+          "$ref": "data#/definitions/data"
+        },
+        "content": {
+          "$ref": "content#/definitions/content"
+        }
+      }
+    }
+  }
+}
