@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<PCF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../../../../../pcf.xsd">
+  <Page
+    canEdit="true"
+    canVisit="cgi.utils.SupportQueriesUtil.IsSupportQueriesScreenEnabled"
+    countsAsWork="false"
+    id="SupportQueries"
+    parent="Admin()"
+    startInEditMode="true"
+    title="&quot;Support Queries&quot;">
+    <Variable
+      initialValue="new cgi.pageprocess.SupportQueriesPageProcess()"
+      name="pageProcess"
+      type="cgi.pageprocess.SupportQueriesPageProcess"/>
+    <Variable
+      initialValue="&quot;&quot;"
+      name="sqlVar"
+      type="java.lang.String"/>
+    <Variable
+      initialValue="{}"
+      name="results"
+      type="java.util.List&lt;java.lang.String[]&gt;"/>
+    <Variable
+      initialValue="{}"
+      name="tableHeader"
+      type="java.lang.String[]"/>
+    <Screen>
+      <CardViewPanel>
+        <Card
+          id="gosuTabs"
+          title="DisplayKey.get(&quot;CGI.Web.SupportQueries.GosuTab&quot;)"
+          visible="perm.System.admindatachangeexec">
+          <PanelRef>
+            <Toolbar>
+              <ToolbarButton
+                action="pageProcess.executeScript()"
+                default="true"
+                id="btnExecute"
+                label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Execute&quot;)"/>
+              <ToolbarButton
+                action="pageProcess.clear()"
+                id="btnClear"
+                label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Clear&quot;)"/>
+            </Toolbar>
+            <Verbatim
+              label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Gosu.Instruction&quot;)"/>
+            <DetailViewPanel>
+              <InputColumn>
+                <TextAreaInput
+                  editable="true"
+                  id="txtIn"
+                  label="DisplayKey.get(&quot;CGI.Web.SupportQueries.InputScript&quot;)"
+                  numRows="20"
+                  value="pageProcess.Var_Input"
+                  valueSectionWidth="1000"/>
+              </InputColumn>
+            </DetailViewPanel>
+          </PanelRef>
+          <DetailViewPanel>
+            <InputColumn>
+              <TextAreaInput
+                id="txtOut"
+                label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Result&quot;)"
+                numRows="10"
+                value="pageProcess.Var_Output"
+                valueSectionWidth="1000"/>
+            </InputColumn>
+          </DetailViewPanel>
+        </Card>
+        <Card
+          id="sqlTabs"
+          title="DisplayKey.get(&quot;CGI.Web.SupportQueries.SqlTab&quot;)">
+          <PanelRef>
+            <Toolbar>
+              <ToolbarButton
+                action="try { executeSQL() } catch(e : Exception) {print(e.getStackTrace())}"
+                default="true"
+                id="btnExecuteSQL"
+                label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Execute&quot;)"/>
+              <ToolbarButton
+                action="clearSQL()"
+                id="btnClearSQL"
+                label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Clear&quot;)"/>
+            </Toolbar>
+            <Verbatim
+              label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Sql.Instruction&quot;)"/>
+            <DetailViewPanel>
+              <InputColumn>
+                <TextAreaInput
+                  editable="true"
+                  id="txtInSQL"
+                  label="DisplayKey.get(&quot;CGI.Web.SupportQueries.Sql.Input&quot;)"
+                  numEntriesPerColumn="80"
+                  numRows="20"
+                  value="sqlVar"
+                  valueSectionWidth="1000"/>
+              </InputColumn>
+            </DetailViewPanel>
+
+          </PanelRef>
+          <PanelRef>
+            <Toolbar  id="barId" visible="true"/>
+            <ListViewPanel>
+              <Row
+                renderAsSmartHeader="true">
+                <CellIterator
+                  elementName="Name"
+                  id="headerCells"
+                  value="tableHeader"
+                  valueType="java.lang.String[]">
+                <TextCell id ="HeaderCell" value ="Name"/>
+                </CellIterator>
+              </Row>
+              <RowIterator
+                elementName="elements"
+                canPick ="false"
+                editable ="false"
+                id="sqlRowsId"
+                value="results"
+                valueType="java.util.List&lt;java.lang.String[]&gt;">
+                <Row>
+                  <CellIterator
+                    elementName="element"
+                    id="rowId"
+                    value="elements"
+                    valueType="java.lang.String[]">
+                    <TextCell id="field" value="element"/>
+                  </CellIterator>
+                </Row>
+              </RowIterator>
+            </ListViewPanel>
+          </PanelRef>
+        </Card>
+      </CardViewPanel>
+    </Screen>
+    <Code><![CDATA[function clearSQL(){
+  sqlVar=""
+  results={}
+  tableHeader={}
+}
+
+function executeSQL() {
+  try {
+    var resultsHeader = pageProcess.executeSQL(sqlVar)
+    tableHeader = resultsHeader.get("Header").first()
+    results = resultsHeader.get("Results")
+  }catch (ex : Exception){
+    print(ex.StackTrace)
+  }
+}
+]]></Code>
+  </Page>
+</PCF>
